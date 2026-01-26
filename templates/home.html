@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+
+</head>
+<body>
+    <header>
+        <div class="navbar">
+
+    <!-- Hidden checkbox for hamburger control -->
+    <input type="checkbox" id="menu-toggle">
+
+    <!-- Hamburger Icon -->
+    <label for="menu-toggle" class="menu-icon">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </label>
+
+    <div id="leftnav">
+        <div id="main-logo">
+            <img src="{{ url_for('static',filename='logo1.png')}}" alt="Logo" width="120">
+        </div>
+        <a href="/">Home</a>
+        <a href="/tax_calculator">Tax Calculator</a>
+        <a href="/EMI">EMI Calculator</a>
+        
+    
+    </div>
+        
+    </div>
+
+    
+</div>
+
+
+        
+    </header>
+    <main>
+        
+        <div id = "bg">
+            <div class = "h1">Esher
+            <br>
+                Finance
+            <br>
+                 <p>Proverbs 10:22
+                 "The blessing of Lord, it maketh rich, and he addeth no sorrow with it."
+                 </p>
+            </div>
+        </div>
+
+        </br>
+        <div class = "aka">
+            <div class="exp">EMI Calculator
+                <br>
+                <p>Track your daily expenses easily and manage your money smarter. Get a clear view of where your money goes and build better saving habits.</p>
+            </div>
+        </br>
+            <div class ="tax">Tax Calculator
+                <br>
+                <p>Calculate your taxes quickly and accurately in just a few steps. Understand your tax liability and plan your finances with confidence.</p>
+            </div>
+        </div>
+        <div class="exp-text">
+            <h4>EMI Calculator</h4>
+            <p>EsherFin’s EMI Calculator is a powerful and intuitive tool designed to simplify and optimize your loan planning. It allows you to calculate your monthly EMI, understand your interest obligations, and gain a clear and accurate overview of your loan commitments. By knowing exactly how much you need to pay each month, you can plan your finances wisely, manage your budget efficiently, and make smarter borrowing decisions.
+
+This tool is perfect for managing home loans, car loans, personal loans, or any other financial commitments, helping you plan ahead, control expenses, and achieve your financial goals with confidence. With EsherFin’s EMI Calculator, managing loan payments becomes effortless, organized, and stress-free, empowering you to take charge of your financial future.
+
+Our EMI Calculator is built to help you make informed decisions, improve your financial discipline, and ensure that your borrowed money is used wisely. By keeping your repayments transparent and predictable, it becomes easier to plan for short-term obligations and long-term financial stability — all in one convenient platform.
+
+Whether you want to compare different loan options, understand the total interest payable, or plan your monthly cash flow, EsherFin provides you with the insights needed to stay on top of your loans. It’s more than just a calculator — it’s a smart financial companion that helps you borrow wisely, plan diligently, and achieve financial security.
+
+<strong>"The plans of the diligent lead surely to abundance, but everyone who is hasty comes only to poverty." – Proverbs 21:5</strong></p>
+        </div>
+        <br><br><br><br>
+        <div class="tax-text"><h4>Tax Calculator</h4>
+            <p>EsherFin’s Tax Calculator is designed to make <strong>tax planning</strong> simple, accurate, and stress-free. It helps you calculate your tax obligations with ease, ensuring that you understand exactly how much tax you owe, how much you are saving, and how to manage your finances more effectively. This tool eliminates confusion and gives you clarity by breaking down all essential tax components in a clean and organized way.
+
+Our Tax Calculator helps individuals, professionals, and small businesses stay compliant with tax rules without the complexity of manual calculations. It allows you to estimate your tax based on your income, deductions, and exemptions—making it easier to plan your finances, avoid unexpected liabilities, and stay prepared throughout the financial year.
+
+EsherFin provides a transparent and reliable way to manage your taxes, giving you complete control over your financial responsibilities. With this tool, you can explore various tax scenarios, understand how different deductions impact your final tax amount, and make informed decisions to optimize your savings legally and efficiently.
+
+Whether you’re preparing for filing season, checking approximate liabilities, or building disciplined financial habits, EsherFin’s Tax Calculator serves as your trusted financial partner. It helps you stay organized, avoid errors, and approach your financial planning with confidence and clarity.
+
+<strong>"If any of you lacks wisdom, let him ask God, who gives generously to all without finding fault, and it will be given to you." – James 1:5</strong></p>
+        </div><div id = "empty"></div>
+
+    </main>
+
+
+<!-- FOOTER  -->
+<footer class="esherfin-footer">
+  <div class="footer-top">
+    <!-- Logo and Name -->
+    <div class="footer-left">
+      <img src="{{ url_for('static',filename='logo1.png')}}" alt="Logo" width="120">
+      <span class="company-name">EsherFin</span>
+    </div>
+
+    <!-- About Section -->
+    <div class="footer-center">
+      <h5>About Us</h5>
+      <p>
+        EsherFin <strong>automates your work</strong> and makes <strong>financial management effortless</strong>.
+        Discover your finances easily and take control of your <strong>future</strong>.<br>
+        "Commit your work to the Lord, and your plans will be established." – Proverbs 16:3
+      </p>
+    </div>
+
+    <!-- Contact and Social -->
+    <div class="footer-right">
+      <h5>Contact</h5>
+      <p>Email: <a href="mailto:ruthboaz@gmail.com">ruthboaz@gmail.com</a></p>
+      <div class="social-buttons">
+        <a href="#!" class="social-btn instagram">Instagram</a>
+        <a href="#!" class="social-btn linkedin">LinkedIn</a>
+        <a href="#!" class="social-btn github">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-bottom">
+    © 2026 EsherFin. All rights reserved.
+  </div>
+</footer>
+
+
+    
+</body>
+</html>

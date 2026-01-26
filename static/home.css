@@ -1,0 +1,384 @@
+/* ================= GLOBAL RESET ================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: 'Libre Franklin', sans-serif;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    display: inline-block;
+}
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background-color: #1f1f1f;
+    color: white;
+}
+
+/* LOGO */
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* USER MENU WRAPPER */
+.user-menu {
+    position: relative;
+}
+
+/* HIDDEN CHECKBOX */
+#menuToggle {
+    display: none;
+}
+
+/* USER BUTTON */
+.user-btn {
+    background: #3a3a3a;
+    color: white;
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* DROPDOWN (Hidden by default) */
+.dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 35px;
+    background: #3a3a3a;
+    border-radius: 5px;
+    padding: 8px;
+    width: 100px;
+}
+
+.dropdown a {
+    display: block;
+    padding: 6px 10px;
+    font-size: 12px;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.dropdown a:hover {
+    background: #4a4a4a;
+}
+
+/* SHOW DROPDOWN WHEN CHECKBOX IS CHECKED */
+#menuToggle:checked ~ .dropdown {
+    display: block;
+}
+
+
+/* ================= NAVBAR ================ */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2vw;
+    background-color: rgb(17, 14, 91);
+    box-shadow: 0px 2px 10px rgba(168, 173, 187, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 60px;
+    color: white;
+}
+
+/* Logo */
+#main-logo img {
+    width: 70px;
+    height: auto;
+}
+
+/* Left + Right nav sections */
+#leftnav, #rightnav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(12px, 2vw, 28px);
+    white-space: nowrap;
+}
+
+#leftnav {
+    margin-left: 20px;
+}
+
+/* ================= HAMBURGER MENU ================ */
+#menu-toggle {
+    display: none; /* hide the checkbox */
+}
+
+.menu-icon {
+    display: none; /* visible only on mobile */
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.menu-icon .line {
+    width: 28px;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+}
+
+/* ================= NAVBAR LINKS STYLING ================ */
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.navbar a:hover {
+    color: #ffd700;
+}
+
+/* LOGIN & REGISTER BUTTONS */
+.bt1 {
+    height: 30px;
+    width: 100px;
+    font-size: 15px;
+    color: rgb(230, 229, 246);
+    box-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+    background-color: #203355;
+    text-align: center;
+}
+
+/* =================== MOBILE MENU DROPDOWN =================== */
+@media (max-width: 768px) {
+
+    .menu-icon {
+        display: flex;
+        position: absolute;
+        right: 20px;
+        top: 18px;
+    }
+
+    /* hide navbar links by default */
+    #leftnav,
+    #rightnav {
+        display: none;
+        flex-direction: column;
+        background: rgb(17, 14, 91);
+        width: 100%;
+        padding: 20px 0;
+        gap: 18px;
+        text-align: center;
+    }
+
+    /* show menu when checked */
+    #menu-toggle:checked ~ #leftnav,
+    #menu-toggle:checked ~ #rightnav {
+        display: flex;
+    }
+
+    /* stack navbar */
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        padding: 10px 20px;
+    }
+
+    a {
+        margin-left: 0;
+    }
+}
+
+/* ================ BACKGROUND HEADER SECTION ================ */
+#bg {
+    width: 100%;
+    height: 60vh;
+    color: whitesmoke;
+}
+
+.h1 {
+    font-weight: 100;
+    font-size: 6vw;
+    width: 100%;
+    height: 60vh;
+    padding-top: 20vh;
+    text-align: left;
+    background-image: url("sean-pollock-PhYq704ffdA-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 30px;
+}
+
+.h1 p {
+    font-size: 1.2rem;
+    margin-top: 0px;
+}
+
+/* ================== CARDS =================== */
+.aka {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin: 60px auto 100px;
+    flex-wrap: wrap;
+}
+
+.exp, .tax {
+    flex: 1 1 45%;
+    max-width: 550px;
+    height: 400px;
+    background: linear-gradient(to right, rgb(4, 4, 73), rgb(13, 33, 95), rgb(114, 115, 134));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 60px;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+}
+
+.exp p, .tax p {
+    font-size: 1.2rem;
+}
+
+.exp-text, .tax-text {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+    flex-direction: column;
+    font-size: 1rem;
+    background-color: rgba(228, 236, 245, 0.473);
+    padding: 20px;
+}
+
+.exp-text h4, .tax-text h4 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+#empty {
+    height: 170px;
+}
+
+/* ================ FOOTER =================== */
+.esherfin-footer {
+    background-color: #203355;
+    color: white;
+    padding: 30px 20px 15px 20px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.company-name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.footer-center {
+    text-align: center;
+    max-width: 500px;
+}
+
+.footer-center h5 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.footer-center p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.footer-right {
+    text-align: right;
+    min-width: 180px;
+}
+
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+footer strong{
+    color:#f4c430;
+}
+
+/* ---------- SOCIAL BUTTONS ---------- */
+.social-btn {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+/* Button Colors */
+.social-btn.instagram { background:#0A66C2; }
+.social-btn.linkedin { background: #0A66C2; }
+.social-btn.github { background:#0A66C2; }
+
+/* Hover */
+.social-btn:hover {
+    opacity: 0.8;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-right { text-align: center; }
+    .footer-left { justify-content: center; }
+    .footer-center { margin-top: 15px; }
+}
+

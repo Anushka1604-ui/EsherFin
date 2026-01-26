@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='EMI.css') }}">
+    
+</head>
+<body>
+    <header>
+         <div class="navbar">
+
+    <!-- Hidden checkbox for hamburger control -->
+    <input type="checkbox" id="menu-toggle">
+
+    <!-- Hamburger Icon -->
+    <label for="menu-toggle" class="menu-icon">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </label>
+
+    <div id="leftnav">
+        <div id="main-logo">
+            <img src="{{ url_for('static',filename='logo1.png')}}" alt="Logo" width="120">
+        </div>
+        <a href="/">Home</a>
+        <a href="/tax_calculator">Tax Calculator</a>
+        <a href="/EMI">EMI Calculator</a>
+        
+    </div>
+
+    
+</div>
+
+
+        <div class ="head">EMI Calculator</div>
+    </header>
+    <main><div class="wrapper">
+    
+    <h2>EMI Calculator</h2>
+
+   <div class="container">
+
+    <form method="POST">
+
+        <label>Loan Amount (₹)</label>
+        <input type="number" name="principal" required>
+
+        <label>Rate of Interest (%)</label>
+        <input type="number" step="0.01" name="rate" required>
+
+        <label>Loan Tenure (Years)</label>
+        <input type="number" name="years" required>
+
+        <button type="submit">Calculate EMI</button>
+
+    </form>
+
+    {% if emi %}
+    <div class="result-box">
+        <h3>EMI Calculation Result</h3>
+
+        <p><strong>Loan Amount:</strong> ₹{{ principal }}</p>
+        <p><strong>Monthly EMI:</strong> ₹{{ emi | round(2) }}</p>
+        <p><strong>Total Interest:</strong> ₹{{ total_interest | round(2) }}</p>
+        <p><strong>Total Amount Payable:</strong> ₹{{ total_payment | round(2) }}</p>
+    </div>
+    {% endif %}
+
+</div>
+    
+
+
+     
+     
+       
+
+    <section class="emi-info">
+    <div class="emi-info-container">
+        <h2>💰 About EMI Calculator</h2>
+        <p>
+            An <span class="highlight">EMI Calculator</span> is a <strong>smart and simple tool</strong> 
+            that helps you calculate the <span class="highlight">Equated Monthly Installment (EMI)</span> for any loan. 
+            EMI is the <strong>fixed monthly payment</strong> you make to the bank until the loan is fully repaid, 
+            including both <span class="highlight">principal</span> and <span class="highlight">interest</span>.
+        </p>
+        <p>
+            By entering the <span class="highlight">loan amount</span>, <span class="highlight">interest rate</span>, 
+            and <span class="highlight">loan tenure</span>, an EMI calculator can instantly show you:
+        </p>
+        <ul class="emi-features">
+            <li>💵 Monthly EMI you need to pay</li>
+            <li>📈 Total interest payable over the loan period</li>
+            <li>🏦 Total amount to repay</li>
+        </ul>
+        <p>
+            This tool is especially useful for <span class="highlight">budget planning</span>, 
+            <span class="highlight">comparing loans</span>, and <span class="highlight">checking affordability</span>. 
+            For example, a home loan of ₹5,00,000 at 8% for 5 years will have an EMI of approximately ₹10,134/month. 
+            Using an EMI calculator helps you make <strong>informed financial decisions</strong> efficiently.
+        </p>
+    </div>
+</section>
+       
+    </div>
+    </main>
+    <footer class="esherfin-footer">
+  <div class="footer-top">
+    <!-- Logo and Name -->
+    <div class="footer-left">
+      <img src="{{ url_for('static',filename='logo1.png')}}" alt="Logo" width="120">
+      <span class="company-name">EsherFin</span>
+    </div>
+
+    <!-- About Section -->
+    <div class="footer-center">
+      <h5>About Us</h5>
+      <p>
+        EsherFin <strong>automates your work</strong> and makes <strong>financial management effortless</strong>.
+        Discover your finances easily and take control of your <strong>future</strong>.<br>
+        "Commit your work to the Lord, and your plans will be established." – Proverbs 16:3
+      </p>
+    </div>
+
+    <!-- Contact and Social -->
+    <div class="footer-right">
+      <h5>Contact</h5>
+      <p>Email: <a href="mailto:ruthboaz@gmail.com">ruthboaz@gmail.com</a></p>
+      <div class="social-buttons">
+        <a href="#!" class="social-btn instagram">Instagram</a>
+        <a href="#!" class="social-btn linkedin">LinkedIn</a>
+        <a href="#!" class="social-btn github">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-bottom">
+    © 2026 EsherFin. All rights reserved.
+  </div>
+</footer>
+</body>
+</html>

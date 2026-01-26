@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='tax_calculator.css') }}">
+
+</head>
+<body>
+    <header>
+         <div class="navbar">
+
+    <!-- Hidden checkbox for hamburger control -->
+    <input type="checkbox" id="menu-toggle">
+
+    <!-- Hamburger Icon -->
+    <label for="menu-toggle" class="menu-icon">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </label>
+
+    <div id="leftnav">
+        <div id="main-logo">
+            <img src="{{ url_for('static',filename='logo1.png')}}" alt="Logo" width="120">
+        </div>
+        <a href="/">Home</a>
+        <a href="/tax_calculator">Tax Calculator</a>
+        <a href="/EMI">EMI Calculator</a>
+        
+    </div>
+
+    
+</div>
+
+
+        <div class="header"><h1>Tax Calculator</h1></div>
+       
+    </header>
+    <main>
+
+     <div class="back">
+        <div class="f1">
+            <form method="POST" action="/tax_calculator">
+
+                <label>Tax Regime</label>
+                <select name="regime" required id="regime" onchange="toggleDeductions()">
+                    <option value="">Select Regime</option>
+                    <option value="new" {% if regime=='new' %}selected{% endif %}>New Regime</option>
+                    <option value="old" {% if regime=='old' %}selected{% endif %}>Old Regime</option>
+                </select>
+
+                <label>Annual Income (₹)</label>
+                <input type="number" name="income" placeholder="Enter income" required value="{{request.form.get('income') or ''}}">
+
+                <label>Age (fixed)</label>
+                <input type="text" value="Below 60" readonly>
+
+                <!-- Other Deductions for Old Regime -->
+                <div id="old_deductions" style="display: none;">
+                    <label>Other Deductions (₹)</label>
+                    <input type="number" name="other_ded" value="{{request.form.get('other_ded') or 0}}">
+                </div>
+
+                <button type="submit">Calculate Tax</button>
+
+            </form>
+
+            {% if tax is not none %}
+            <div class="estimated-tax">
+                <h3>Result According to {{regime|capitalize}} Regime (FY 2025–26)</h3>
+                <p>Taxable Income: ₹ <span>{{taxable_income}}</span></p>
+                <p>Tax Payable (incl. 4% Cess): ₹ <span>{{tax}}</span></p>
+            </div>
+            {% endif %}
+        </div>
+     </div>
+
+     <script>
+        function toggleDeductions() {
+            const regime = document.getElementById("regime").value;
+            const deductions = document.getElementById("old_deductions");
+            if(regime === "old") {
+                deductions.style.display = "block";
+            } else {
+                deductions.style.display = "none";
+            }
+        }
+        // Run on page load to show/hide deductions correctly
+        window.onload = toggleDeductions;
+     </script>
+
+        
+
+
+         <div class ="text"><h2>What is a Tax Calculator?</h2>
+
+         <p>
+            A tax calculator is an online tool that helps individuals estimate their income tax liability 
+            based on the income they earn, the deductions they qualify for, and the tax regime they choose. 
+            It simplifies the complex process of tax computation by automatically calculating the tax amount 
+            using predefined rules and rates.
+         </p>
+
+
+         <h2>Why is it Helpful?</h2>
+
+         <p>
+            A tax calculator is helpful because it allows you to quickly understand how much tax you need to pay, 
+            plan your finances better, and avoid surprises during tax filing. It also helps in comparing different 
+            tax-saving options and regimes to make informed decisions.
+         </p>
+
+
+         <h2>Old vs. New Tax Regimes</h2>
+
+         <p>
+            In India, there are two main tax regimes: the old regime and the new regime. 
+            The old regime allows taxpayers to claim various deductions and exemptions, such as HRA, LTA, and 80C investments. 
+            The new regime offers lower tax rates but eliminates most deductions and exemptions. 
+            Choosing the right regime depends on your income sources and the deductions you plan to claim.
+         </p>
+
+
+         <h2>Deductions and Allowances</h2>
+
+         <p>
+            Tax deductions are specific expenses or investments that reduce your taxable income. 
+            Common deductions under the old regime include Section 80C (like PF, PPF, life insurance), 
+            Section 80D (health insurance premium), and home loan interest. 
+            In the new regime, most of these deductions are not available, but lower tax rates apply.
+         </p>
+
+
+         <h2>Estimated Tax Value</h2>
+
+         <p>
+            After entering the necessary details, the tax calculator computes an estimated tax value. 
+            This estimate includes the total tax payable and can also break down monthly or yearly tax liabilities. 
+            It serves as a planning tool rather than a final official tax computation, helping you make better financial decisions.
+         </p>
+
+         </div>
+    
+            
+        
+    
+    </main>
+    <footer class="esherfin-footer">
+  <div class="footer-top">
+    <!-- Logo and Name -->
+    <div class="footer-left">
+      <img src="{{ url_for('static',filename='logo1.png')}}" alt="Logo" width="120">
+      <span class="company-name">EsherFin</span>
+    </div>
+
+    <!-- About Section -->
+    <div class="footer-center">
+      <h5>About Us</h5>
+      <p>
+        EsherFin <strong>automates your work</strong> and makes <strong>financial management effortless</strong>.
+        Discover your finances easily and take control of your <strong>future</strong>.<br>
+        "Commit your work to the Lord, and your plans will be established." – Proverbs 16:3
+      </p>
+    </div>
+
+    <!-- Contact and Social -->
+    <div class="footer-right">
+      <h5>Contact</h5>
+      <p>Email: <a href="mailto:ruthboaz@gmail.com">ruthboaz@gmail.com</a></p>
+      <div class="social-buttons">
+        <a href="#!" class="social-btn instagram">Instagram</a>
+        <a href="#!" class="social-btn linkedin">LinkedIn</a>
+        <a href="#!" class="social-btn github">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-bottom">
+    © 2026 EsherFin. All rights reserved.
+  </div>
+</footer>
+</body>
+</html>

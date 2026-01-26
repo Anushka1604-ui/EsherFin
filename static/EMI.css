@@ -1,0 +1,483 @@
+/* ---------- GLOBAL RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #f7f9fc;
+    padding: 20px;
+    color: #2c3e50;
+}
+/* ================= NAVBAR ================ */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2vw;
+    background-color: rgb(17, 14, 91);
+    box-shadow: 0px 2px 10px rgba(168, 173, 187, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 60px;
+    color: white;
+}
+
+/* Logo */
+#main-logo img {
+    width: 70px;
+    height: auto;
+}
+
+/* Left + Right nav sections */
+#leftnav, #rightnav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(12px, 2vw, 28px);
+    white-space: nowrap;
+}
+
+#leftnav {
+    margin-left: 20px;
+}
+
+/* ================= HAMBURGER MENU ================ */
+#menu-toggle {
+    display: none; /* hide the checkbox */
+}
+
+.menu-icon {
+    display: none; /* visible only on mobile */
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.menu-icon .line {
+    width: 28px;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+}
+
+/* ================= NAVBAR LINKS STYLING ================ */
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.navbar a:hover {
+    color: #ffd700;
+}
+
+/* LOGIN & REGISTER BUTTONS */
+.bt1 {
+    height: 50px;
+    width: 100px;
+    font-size: 15px;
+    color: rgb(230, 229, 246);
+    box-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+    background-color: #203355;
+    text-align: center;
+}
+
+/* =================== MOBILE MENU DROPDOWN =================== */
+@media (max-width: 768px) {
+
+    .menu-icon {
+        display: flex;
+        position: absolute;
+        right: 20px;
+        top: 18px;
+    }
+
+    /* hide navbar links by default */
+    #leftnav,
+    #rightnav {
+        display: none;
+        flex-direction: column;
+        background: rgb(17, 14, 91);
+        width: 100%;
+        padding: 20px 0;
+        gap: 18px;
+        text-align: center;
+    }
+
+    /* show menu when checked */
+    #menu-toggle:checked ~ #leftnav,
+    #menu-toggle:checked ~ #rightnav {
+        display: flex;
+    }
+
+    /* stack navbar */
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        padding: 10px 20px;
+    }
+
+    a {
+        margin-left: 0;
+    }
+}
+
+
+/* ---------- HEADER ---------- */
+.head {
+    height: 400px;
+    width: 100%;
+    font-size: 80px;
+    font-weight: 700;
+    background-image: url("jakub-zerdzicki-RVk8EwpRwNs-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
+}
+
+/* ---------- FORM CONTAINER ---------- */
+.container {
+    width: 600px;
+    height: auto;
+    max-width: 95%;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 35px 40px;
+    border-radius: 12px;
+    border: 1px solid #d1d8e0;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #2a4fff;
+}
+
+/* ---------- LABELS ---------- */
+label {
+    font-weight: 500;
+    color: #2c3e50;
+    display: block;
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+/* ---------- INPUT & SELECT ---------- */
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 15px;
+    border-radius: 6px;
+    border: 1px solid #cfd8dc;
+    background: #f9fbfc;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+    border-color: #2a4fff;
+}
+
+/* ---------- BUTTON ---------- */
+button {
+    width: 100%;
+    padding: 14px;
+    background: #2a4fff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #1936d0;
+}
+
+/* ---------- RESULT BOX (Premium + Responsive) ---------- */
+.result-box {
+    width: 100%;
+    max-width: 520px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 28px 30px;
+    border-radius: 14px;
+    border-left: 5px solid #2a4fff;
+    border-right: 5px solid #2a4fff;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.result-box h3 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 18px;
+    color: #2a4fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.result-box p {
+    font-size: 17px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+    line-height: 1.6;
+}
+
+.result-box strong {
+    color: #2a4fff;
+    font-weight: 700;
+    font-size: 17px;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0px); }
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+@media (max-width: 768px) {
+    .result-box {
+        padding: 22px 20px;
+        margin-top: 25px;
+    }
+
+    .result-box h3 {
+        font-size: 21px;
+    }
+
+    .result-box p, 
+    .result-box strong {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .result-box {
+        padding: 18px 16px;
+        border-left-width: 4px;
+        border-right-width: 4px;
+    }
+
+    .result-box h3 {
+        font-size: 19px;
+    }
+
+    .result-box p, 
+    .result-box strong {
+        font-size: 14px;
+    }
+}
+
+
+
+
+
+/* ---------- EMI INFO SECTION ---------- */
+.emi-info {
+    background: #f9fbfc;
+    padding: 50px 20px;
+    margin-top: 40px;
+    border-radius: 12px;
+}
+
+.emi-info-container {
+    max-width: 850px;
+    margin: auto;
+    padding: 30px 40px;
+}
+
+.emi-info h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #2a4fff;
+}
+
+.emi-info p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.emi-info strong {
+    color: #2a4fff;
+}
+
+.emi-info .highlight {
+    color: #2a4fff;
+    font-weight: 600;
+}
+
+.emi-features {
+    list-style: disc;
+    padding-left: 25px;
+    margin-bottom: 20px;
+}
+
+.emi-features li {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1024px) {
+    .head { height: 300px; font-size: 60px; }
+    .container { width: 90%; padding: 30px; }
+    .emi-info-container { padding: 25px 30px; }
+}
+
+@media (max-width: 768px) {
+    .head { height: 250px; font-size: 50px; padding: 0 10px; }
+    h2 { font-size: 26px; }
+    .emi-info p, .emi-features li { font-size: 15px; }
+}
+
+/* Mobile responsive stacking */
+@media (max-width: 768px) {
+    .ipg, .abc {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .head { height: 200px; font-size: 36px; }
+    .container { width: 95%; padding: 20px; }
+    .emi-info h2 { font-size: 24px; }
+    .emi-info p, .emi-features li { font-size: 14px; }
+    button { font-size: 15px; padding: 12px; }
+}
+/* Desktop: form + result side by side */
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    align-items: flex-start;
+    margin-top: 40px;
+}
+
+/* Mobile: stack vertically (same as now) */
+@media (max-width: 768px) {
+    .wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+/* ================ FOOTER =================== */
+.esherfin-footer {
+    background-color: #203355;
+    color: white;
+    padding: 30px 20px 15px 20px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.company-name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.footer-center {
+    text-align: center;
+    max-width: 500px;
+}
+
+.footer-center h5 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.footer-center p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.footer-right {
+    text-align: right;
+    min-width: 180px;
+}
+
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+footer strong {
+    color: #f4c430;
+}
+
+/* ---------- SOCIAL BUTTONS ---------- */
+.social-btn {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+/* Button Colors */
+.social-btn.instagram { background:#0A66C2; }
+.social-btn.linkedin { background: #0A66C2; }
+.social-btn.github { background:#0A66C2; }
+
+/* Hover */
+.social-btn:hover {
+    opacity: 0.8;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 10px;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-right { text-align: center; }
+    .footer-left { justify-content: center; }
+    .footer-center { margin-top: 15px; }
+}
